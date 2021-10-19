@@ -29,7 +29,7 @@ Votre objectif pour ce test est de créer un API Rest avec node.js et express.js
 
 - Un GET pour obtenir la composition de l’équipe en fonction de l'année dans la base de données.
 - Un POST pour t'ajouter en tant que nouveau joueur de l'équipe d'une année définie dans la base de données.
-- Un PUT pour mettre à jour le capitaine de l'equipe pour une année définie.
+- Un PUT pour mettre à jour le capitaine de l'équipe pour une année définie.
 
 ### **Vous devez créer les fonctionnalités suivantes dans l'application web :**
 
@@ -47,16 +47,16 @@ Votre objectif pour ce test est de créer un API Rest avec node.js et express.js
 - 3 endpoints REST fonctionnels
 - 3 fonctionnalités du Front End.
 - Qualité du code
-- Utilisation des meilleurs pratiques de développement
+- Utilisation des meilleures pratiques de développement
+- Documentation
 
 ## Outils à utiliser
 
 - Node.js
-- Express.js
+- Framework JS
 - Base de données SQL au choix (mysql, postgresql, mariadb etc..)
-- Framework JS au choix (react, angular, vues etc...)
-- Test unitaire (Optionnel)
-- Framework UI au choix (Bootstrap, antd, tailwindcss etc...) (Optionnel)
+- Tests unitaire (Optionnel)
+- Framework UI (Optionnel)
 - Typescript (Optionnel)
 
 ## Modèle
