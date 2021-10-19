@@ -2,7 +2,7 @@
   <a href="https://github.com/Maplr-Community/nodejs-test-hockey-game">
     <img src="https://maplr.co/wp-content/uploads/2019/12/Fichier-23@3x.png" alt="Logo" height="150">
   </a>
-  <h3 align='center'>Test Développeur Fullstack intermédiaire</h3>  
+  <h3 align='center'>Test Développeur Fullstack JS intermédiaire</h3>  
   <br />
 </p>
 
