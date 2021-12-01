@@ -89,11 +89,11 @@
         "method": "PUT",
         "header": [],
         "url": {
-          "raw": "http://localhost:8080/api/player/captain/4",
+          "raw": "http://localhost:8080/api/player/4/captain",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8080",
-          "path": ["api", "player", "captain", "4"]
+          "path": ["api", "player", "4", "captain"]
         }
       },
       "response": []
