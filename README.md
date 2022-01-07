@@ -2,7 +2,7 @@
   <a href="https://github.com/Maplr-Community/nodejs-test-hockey-game">
     <img src="https://maplr.co/wp-content/uploads/2019/12/Fichier-23@3x.png" alt="Logo" height="150">
   </a>
-  <h3 align='center'>Test Développeur Fullstack JS intermédiaire</h3>  
+  <h3 align='center'>Test Développeur Fullstack intermédiaire</h3>  
   <br />
 </p>
 
@@ -23,7 +23,7 @@
 
 ## Objectif du test
 
-Votre objectif pour ce test est de créer un API Rest avec node.js et express.js et une application web pour ajouter et obtenir les joueurs et les informations de l'équipe de Hockey des Canadiens du Montréal. Le but est donc d'avoir la composition de cette équipe pour chaque année ou elle a participé à la Ligue Nationale de Hockey.
+Votre objectif pour ce test est de créer une API Rest et une application web pour ajouter et obtenir les joueurs et les informations de l'équipe de Hockey des Canadiens du Montréal. Le but est donc d'avoir la composition de cette équipe pour chaque année ou elle a participé à la Ligue Nationale de Hockey.
 
 ### **Vous devez créer les endpoints suivants dans l'API:**
 
@@ -52,12 +52,9 @@ Votre objectif pour ce test est de créer un API Rest avec node.js et express.js
 
 ## Outils à utiliser
 
-- Node.js
-- Framework JS
 - Base de données SQL au choix (mysql, postgresql, mariadb etc..)
 - Tests unitaire (Optionnel)
 - Framework UI (Optionnel)
-- Typescript (Optionnel)
 
 ## Modèle
 
