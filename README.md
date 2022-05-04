@@ -6,149 +6,38 @@
   <br />
 </p>
 
+## Test Hockey Game
 
-## Table des matières
+This is a full stack application built using [Node.js](https://nodejs.dev/) together with [Koa](https://koajs.com/) and [Postgres](https://www.postgresql.org/) on the backend and [React](https://reactjs.org/) on the frontend.
 
-- [Objectif du test](#objectif-du-test)
-- [Présomptions](#présomptions)
-- [Critères](#critères)
-- [Outils à utiliser](#outils-à-utiliser)
-- [Modèle](#modèle)
-- [Endpoints](#endpoints)
-  - [GET /api/team/{year}](#GET-/api/team/{year})
-  - [POST /api/team/{Year}](#POST-/api/team/{year})
-  - [PUT /api/player/captain/{ID}](#PUT-/api/player/captain/{ID})
-- [Validation des endpoints](#validation-des-endpoints)
-- [Soumettre le test](#soumettre-le-test)
+## Prerequisites
 
-## Objectif du test
+- Node.js > v16 ([install Node](https://nodejs.org/en/download/))
 
-Votre objectif pour ce test est de créer une API Rest et une application web pour ajouter et obtenir les joueurs et les informations de l'équipe de Hockey des Canadiens du Montréal. Le but est donc d'avoir la composition de cette équipe pour chaque année ou elle a participé à la Ligue Nationale de Hockey.
+## API
 
-### **Vous devez créer les endpoints suivants dans l'API:**
+### Install
 
-- Un GET pour obtenir la composition de l’équipe en fonction de l'année dans la base de données.
-- Un POST pour t'ajouter en tant que nouveau joueur de l'équipe d'une année définie dans la base de données.
-- Un PUT pour mettre à jour le capitaine de l'équipe pour une année définie.
+`make install-api`
 
-### **Vous devez créer les fonctionnalités suivantes dans l'application web :**
+or `cd api && npm install`
 
-- Listing des informations de l'équipe et des joueurs en fonction de l'année.
-- Possibilité d'ajouter un joueur dans l'équipe d'une année.
-- Possibilité de mettre un joueur en capitaine.
+### Start
 
-## **Présomptions**
+`make start-api`
 
-- Ne vous souciez pas de valider l'entrée de l'utilisateur, vous pouvez présumer que la requête sera toujours valide.
-- Il n'est pas nécessaire d'implémenter un mécanisme de sécurité.
+or `cd api && npm run start`
 
-## Critères
+## Front
 
-- 3 endpoints REST fonctionnels
-- 3 fonctionnalités du Front End.
-- Qualité du code
-- Utilisation des meilleures pratiques de développement
-- Documentation
+### Install
 
-## Outils à utiliser
+`make install-front`
 
-- Base de données SQL au choix (mysql, postgresql, mariadb etc..)
-- Tests unitaire (Optionnel)
-- Framework UI (Optionnel)
+or `cd front && npm install`
 
-## Modèle
+### Start
 
-Team
+`make start-front`
 
-```
-{
-    "id": 1,
-    "coach": "Dominique Ducharme"
-    "year" : 2020
-    "players": [
-        {
-            "number": 99,
-            "name": "John",
-            "lastname": "Doe",
-            "position": "defenseman",
-            "isCaptain" : false
-        }
-    ]
-}
-```
-
-## Endpoints
-
-### GET /api/team/{year}
-
-- Requête: Year dans l'URI
-- Réponse: Objet Team (Voir modèle ci-dessus)
-- Status: 200 OK
-
-```
-http://localhost:8080/api/team/2020 --header "Content-Type:application/json"
-
-{
-    "id": 1,
-    "coach": "Dominique Ducharme"
-    "year" : 2020
-    "players": [
-        {
-            "number": 99,
-            "name": "John",
-            "lastname": "Doe",
-            "position": "defenseman",
-            "isCaptain" : false
-        }
-        [...]
-    ]
-}
-```
-
-### POST /api/team/{Year}
-
-- Requête: Objet Joueur dans le body
-- Réponse: Objet Joueur crée
-- Status: 201 CREATED
-
-```
-http://localhost:8080/api/player/2020 --header "Content-Type:application/json"
-
-{
-  "number":99,
-  "name":"Antonin",
-  "lastname":"Bouscarel",
-  "position":"forward",
-  "isCaptain" : false
-}
-```
-
-### PUT /api/player/{ID}/captain/
-
-- Requête: ID du joueur dans l'URI
-- Réponse: Objet Player
-- Status: 200 OK
-
-```
-http://localhost:8080/api/player/9/captain
-
-{
-  "number":99,
-  "name":"Antonin",
-  "lastname":"Bouscarel",
-  "position":"forward",
-  "isCaptain" : true
-}
-```
-
-## Validation des endpoints
-
-Vous pouvez utiliser la collection postman incluse dans le projet si vous désirez valider votre API avec des assertions.
-
-Celle-ci se retrouve dans le dossier **postman** du projet.
-
-## Soumettre le test
-
-Une fois terminé, veuillez créer un nouveau dépot sur GitHub et l'envoyer par courriel.
-
-**Bonne chance et bon game ! 🏒**
+or `cd front && npm run start`

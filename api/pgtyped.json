@@ -1,0 +1,13 @@
+{
+  "transforms": [
+    {
+      "mode": "sql",
+      "include": "**/query.sql",
+      "emitTemplate": "{{dir}}/query.ts"
+    }
+  ],
+  "srcDir": "./src/",
+  "failOnError": false,
+  "camelCaseColumnNames": false,
+  "dbUrl": "postgres://gznnuphe:0LTuB4gASYs_I1vESxs_ks09vgSor3dM@tyke.db.elephantsql.com/gznnuphe"
+}
