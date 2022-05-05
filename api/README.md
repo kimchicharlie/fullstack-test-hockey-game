@@ -16,6 +16,8 @@
 
 ### Provisioning database
 
+The database used for this project is hosted on [ElephantSQL](https://www.elephantsql.com/), we are using a PostgreSQL 13.5
+
 The provided data.json contained a few duplicated teams, I have made a new one called newData.json deduplicating these.
 
 I have also made a small script to provision an empty postgres, the database should be filled with data already but otherwise, you can fill it using

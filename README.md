@@ -16,6 +16,8 @@ This is a full stack application built using [Node.js](https://nodejs.dev/) toge
 
 ## API
 
+See [Readme](https://github.com/kimchicharlie/fullstack-test-hockey-game/blob/master/api/README.md) for specifics
+
 ### Install
 
 `make install-api`
@@ -29,6 +31,8 @@ or `cd api && npm install`
 or `cd api && npm run start`
 
 ## Front
+
+See [Readme](https://github.com/kimchicharlie/fullstack-test-hockey-game/blob/master/front/README.md) for specifics
 
 ### Install
 

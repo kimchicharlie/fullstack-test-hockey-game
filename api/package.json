@@ -1,6 +1,7 @@
 {
   "name": "fullstack-test-hockey-game-api",
   "version": "1.0.0",
+  "private": true,
   "description": "Api du test technique Maplr",
   "main": "src/index.ts",
   "scripts": {
