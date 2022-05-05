@@ -1,5 +1,6 @@
 /* @name getTeamPlayersByYearQuery */
 select
+    players.id,
     players.number,
     players.name,
     players.lastname,
@@ -8,4 +9,5 @@ select
 from players
 join player_team on player_team.player_id = players.id
 join teams on teams.id = player_team.team_id
-where teams."year" = :year;
+where teams."year" = :year
+order by players.number;

@@ -1,17 +1,13 @@
-import { Pool, PoolClient } from "pg";
+import { Client } from "pg";
+import { getPlayerById } from "../getPlayerById";
 
-import { usePgPool } from "../../../../utils/usePgPool";
+import { makePlayerCaptainQuery, IMakePlayerCaptainQueryParams } from "./query";
 
-// import {
-//   makePlayerCaptainQuery,
-//   IMakePlayerCaptainQueryResult,
-//   IMakePlayerCaptainQueryParams,
-// } from "./query";
+export const makePlayerCaptain = async (
+  { pgClient }: { pgClient: Client },
+  params: IMakePlayerCaptainQueryParams
+) => {
+  await makePlayerCaptainQuery.run(params, pgClient);
 
-// export const makePlayerCaptain = async (
-//   { pgPool }: { pgPool: Pool },
-//   params: ICreatePlayerQueryParams
-// ) =>
-//   usePgPool<ICreatePlayerQueryResult[]>(pgPool, async (client: PoolClient) =>
-//     makePlayerCaptainQuery.run(params, client)
-//   );
+  return getPlayerById({ pgClient }, { playerId: params.playerId });
+};

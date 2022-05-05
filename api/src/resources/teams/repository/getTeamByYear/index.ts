@@ -1,22 +1,13 @@
-import { Pool, PoolClient } from "pg";
+import { Client } from "pg";
 
-import { usePgPool } from "../../../../utils/usePgPool";
-
-import {
-  getTeamByYearQuery,
-  IGetTeamByYearQueryResult,
-  IGetTeamByYearQueryParams,
-} from "./query";
+import { getTeamByYearQuery, IGetTeamByYearQueryParams } from "./query";
 
 export type TGetTeamByYearParams = IGetTeamByYearQueryParams;
 
 export const getTeamByYear = async (
-  { pgPool }: { pgPool: Pool },
+  { pgClient }: { pgClient: Client },
   params: TGetTeamByYearParams
 ) => {
-  const data = await usePgPool<IGetTeamByYearQueryResult[]>(
-    pgPool,
-    async (client: PoolClient) => getTeamByYearQuery.run(params, client)
-  );
+  const data = await getTeamByYearQuery.run(params, pgClient);
   return data[0];
 };

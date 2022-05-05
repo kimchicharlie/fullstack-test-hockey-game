@@ -1,23 +1,14 @@
-import { Pool, PoolClient } from "pg";
+import { Client } from "pg";
 
-import { usePgPool } from "../../../../utils/usePgPool";
-
-import {
-  getTeamPlayersByYearQuery,
-  IGetTeamPlayersByYearQueryResult,
-} from "./query";
+import { getTeamPlayersByYearQuery } from "./query";
 
 export const getTeamPlayersByYear = async (
-  { pgPool }: { pgPool: Pool },
+  { pgClient }: { pgClient: Client },
   { year }: { year: number }
 ) =>
-  usePgPool<IGetTeamPlayersByYearQueryResult[]>(
-    pgPool,
-    async (client: PoolClient) =>
-      getTeamPlayersByYearQuery.run(
-        {
-          year,
-        },
-        client
-      )
+  getTeamPlayersByYearQuery.run(
+    {
+      year,
+    },
+    pgClient
   );

@@ -3,21 +3,11 @@ import { PreparedQuery } from '@pgtyped/query';
 
 /** 'MakePlayerCaptainQuery' parameters type */
 export interface IMakePlayerCaptainQueryParams {
-  isCaptain: boolean | null | void;
-  lastname: string | null | void;
-  name: string | null | void;
-  number: number | null | void;
-  position: string | null | void;
+  playerId: number | null | void;
 }
 
 /** 'MakePlayerCaptainQuery' return type */
-export interface IMakePlayerCaptainQueryResult {
-  isCaptain: boolean | null;
-  lastname: string | null;
-  name: string | null;
-  number: number | null;
-  position: string | null;
-}
+export type IMakePlayerCaptainQueryResult = void;
 
 /** 'MakePlayerCaptainQuery' query type */
 export interface IMakePlayerCaptainQueryQuery {
@@ -25,14 +15,39 @@ export interface IMakePlayerCaptainQueryQuery {
   result: IMakePlayerCaptainQueryResult;
 }
 
-const makePlayerCaptainQueryIR: any = {"name":"makePlayerCaptainQuery","params":[{"name":"number","required":false,"transform":{"type":"scalar"},"codeRefs":{"used":[{"a":111,"b":116,"line":3,"col":9}]}},{"name":"name","required":false,"transform":{"type":"scalar"},"codeRefs":{"used":[{"a":120,"b":123,"line":3,"col":18}]}},{"name":"lastname","required":false,"transform":{"type":"scalar"},"codeRefs":{"used":[{"a":127,"b":134,"line":3,"col":25}]}},{"name":"position","required":false,"transform":{"type":"scalar"},"codeRefs":{"used":[{"a":138,"b":145,"line":3,"col":36}]}},{"name":"isCaptain","required":false,"transform":{"type":"scalar"},"codeRefs":{"used":[{"a":149,"b":157,"line":3,"col":47}]}}],"usedParamSet":{"number":true,"name":true,"lastname":true,"position":true,"isCaptain":true},"statement":{"body":"insert into players(number, name, lastname, position, is_capitain)\nVALUES (:number, :name, :lastname, :position, :isCaptain)\nRETURNING number, name, lastname, position, is_capitain as \"isCaptain\"","loc":{"a":35,"b":229,"line":2,"col":0}}};
+const makePlayerCaptainQueryIR: any = {"name":"makePlayerCaptainQuery","params":[{"name":"playerId","required":false,"transform":{"type":"scalar"},"codeRefs":{"used":[{"a":243,"b":250,"line":9,"col":41},{"a":506,"b":513,"line":21,"col":39},{"a":548,"b":555,"line":23,"col":21}]}}],"usedParamSet":{"playerId":true},"statement":{"body":"WITH team_players AS (\n    WITH actual_team AS (\n            SELECT\n                player_team.team_id\n            FROM\n                player_team\n            WHERE\n                player_team.player_id = :playerId\n    )\n    SELECT\n        players.*\n    FROM\n        actual_team\n        JOIN player_team ON actual_team.team_id = player_team.team_id\n        JOIN players ON players.id = player_team.player_id\n)\nUPDATE\n\tplayers\nSET\n\tis_capitain = CASE WHEN players.id = :playerId THEN\n\t\tTRUE\n\tWHEN players.id != :playerId THEN\n\t\tFALSE\n\tEND\nFROM\n\tteam_players\nWHERE\n\tteam_players.id = players.id","loc":{"a":35,"b":628,"line":2,"col":0}}};
 
 /**
  * Query generated from SQL:
  * ```
- * insert into players(number, name, lastname, position, is_capitain)
- * VALUES (:number, :name, :lastname, :position, :isCaptain)
- * RETURNING number, name, lastname, position, is_capitain as "isCaptain"
+ * WITH team_players AS (
+ *     WITH actual_team AS (
+ *             SELECT
+ *                 player_team.team_id
+ *             FROM
+ *                 player_team
+ *             WHERE
+ *                 player_team.player_id = :playerId
+ *     )
+ *     SELECT
+ *         players.*
+ *     FROM
+ *         actual_team
+ *         JOIN player_team ON actual_team.team_id = player_team.team_id
+ *         JOIN players ON players.id = player_team.player_id
+ * )
+ * UPDATE
+ * 	players
+ * SET
+ * 	is_capitain = CASE WHEN players.id = :playerId THEN
+ * 		TRUE
+ * 	WHEN players.id != :playerId THEN
+ * 		FALSE
+ * 	END
+ * FROM
+ * 	team_players
+ * WHERE
+ * 	team_players.id = players.id
  * ```
  */
 export const makePlayerCaptainQuery = new PreparedQuery<IMakePlayerCaptainQueryParams,IMakePlayerCaptainQueryResult>(makePlayerCaptainQueryIR);

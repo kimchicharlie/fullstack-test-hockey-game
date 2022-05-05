@@ -14,6 +14,14 @@
 
 `npm run start`
 
+### Provisioning database
+
+The provided data.json contained a few duplicated teams, I have made a new one called newData.json deduplicating these.
+
+I have also made a small script to provision an empty postgres, the database should be filled with data already but otherwise, you can fill it using
+
+`npm run database:feed`
+
 ### File architecture
 
 I am using a file architecture based on resources on the higher level instead of having technical layers (repository, handlers, controllers, models, validations, authorizations, ...) at the highest level. I made that choice because when we will add resources, adding the corresponding folders in each technical layer folder can easily become a bottleneck.
@@ -31,3 +39,5 @@ I am not using any ORM here as I feel like Postgres is powerful enough to answer
 To do so, launch the command below in the /api folder
 
 `npm run pgtyped:generate`
+
+You can see in the /repository folders that there are a few data utils that can be used to accomplish specific actions in the database, these are pretty easy to write. The major downside is that we don't have any model layer in this project.

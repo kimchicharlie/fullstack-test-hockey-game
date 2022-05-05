@@ -1,22 +1,13 @@
-import { Pool, PoolClient } from "pg";
+import { Client } from "pg";
 
-import { usePgPool } from "../../../../utils/usePgPool";
-
-import {
-  createPlayerQuery,
-  ICreatePlayerQueryResult,
-  ICreatePlayerQueryParams,
-} from "./query";
+import { createPlayerQuery, ICreatePlayerQueryParams } from "./query";
 
 export type TCreatePlayerParams = ICreatePlayerQueryParams;
 
 export const createPlayer = async (
-  { pgPool }: { pgPool: Pool },
+  { pgClient }: { pgClient: Client },
   params: TCreatePlayerParams
 ) => {
-  const data = await usePgPool<ICreatePlayerQueryResult[]>(
-    pgPool,
-    async (client: PoolClient) => createPlayerQuery.run(params, client)
-  );
+  const data = await createPlayerQuery.run(params, pgClient);
   return data[0];
 };

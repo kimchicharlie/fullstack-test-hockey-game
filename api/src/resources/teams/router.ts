@@ -9,7 +9,7 @@ export const buildTeamsRouter = () => {
 
   router.get("/:year", async (ctx) => {
     const players = await getTeamPlayersByYear(
-      { pgPool: ctx.app.context.pgPool },
+      { pgClient: ctx.app.context.pgClient },
       { year: getIntegerFromString(ctx.params.year) }
     );
 
@@ -22,7 +22,7 @@ export const buildTeamsRouter = () => {
 
     const playerCreated = await createPlayerInTeam(
       {
-        pgPool: ctx.app.context.pgPool,
+        pgClient: ctx.app.context.pgClient,
       },
       {
         isCaptain: isCaptain || false,

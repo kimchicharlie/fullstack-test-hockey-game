@@ -1,4 +1,4 @@
-import { Pool } from "pg";
+import { Client } from "pg";
 
 import {
   createPlayer,
@@ -6,24 +6,29 @@ import {
   getTeamByYear,
   TCreatePlayerParams,
   TGetTeamByYearParams,
+  createTeam,
 } from "../../repository";
 
 type TParams = TCreatePlayerParams & TGetTeamByYearParams;
 
 // This creates a new player and add it to the provided year's team
 export const createPlayerInTeam = async (
-  { pgPool }: { pgPool: Pool },
+  { pgClient }: { pgClient: Client },
   { year, isCaptain, lastname, name, number, position }: TParams
 ) => {
   const playerCreated = await createPlayer(
-    { pgPool },
+    { pgClient },
     { isCaptain, lastname, name, number, position }
   );
 
-  const team = await getTeamByYear({ pgPool }, { year });
+  let team = await getTeamByYear({ pgClient }, { year });
+
+  if (!team) {
+    team = await createTeam({ pgClient }, { year, coach: "Unknown" });
+  }
 
   await insertPlayerInTeam(
-    { pgPool },
+    { pgClient },
     { playerId: playerCreated.id, teamId: team.id }
   );
 

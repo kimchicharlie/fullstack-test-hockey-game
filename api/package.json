@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "start": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts",
-    "pgtyped:generate": "pgtyped -c pgtyped.json"
+    "pgtyped:generate": "pgtyped -c pgtyped.json",
+    "database:feed": "ts-node src/bin/feedDb.ts"
   },
   "author": "",
   "license": "ISC",
