@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import Select, { SingleValue } from "react-select";
-import { TCreatePlayerParams } from "../../api/createPlayer";
-import { POSITIONS } from "../../constants/positions";
+import { TCreatePlayerParams } from "../../api/players/createPlayer";
+import { POSITIONS } from "../../utils/constants";
 import { Button } from "../Button";
 
 import { Field } from "../Field";

@@ -5,6 +5,6 @@ type TProps = {
   onClick: () => void;
 };
 
-export const Button = ({ children, onClick }: TProps) => (
+export const Button: React.FC<TProps> = ({ children, onClick }) => (
   <StyledButton onClick={onClick}>{children}</StyledButton>
 );

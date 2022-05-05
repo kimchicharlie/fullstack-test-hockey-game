@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { TPlayer } from "../api/types";
-import { fetchPlayers } from "../api/fetchPlayers";
-import { deletePlayerById } from "../api/deletePlayerById";
-import { makePlayerCaptain } from "../api/makePlayerCaptain";
-import { createPlayer, TCreatePlayerParams } from "../api/createPlayer";
+import { TPlayer } from "../api/players/types";
+import { fetchPlayers } from "../api/players/fetchPlayers";
+import { deletePlayerById } from "../api/players/deletePlayerById";
+import { makePlayerCaptain } from "../api/players/makePlayerCaptain";
+import { createPlayer, TCreatePlayerParams } from "../api/players/createPlayer";
 
 type TUsePlayersResult = {
   players: TPlayer[];

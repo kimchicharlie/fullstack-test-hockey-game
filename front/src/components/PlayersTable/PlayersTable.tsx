@@ -3,7 +3,7 @@ import {
   StyledActions,
   StyledClickableIcon,
 } from "./PlayersTable.styled";
-import { TPlayer } from "../../api/types";
+import { TPlayer } from "../../api/players/types";
 
 type TAction = {
   key: string;

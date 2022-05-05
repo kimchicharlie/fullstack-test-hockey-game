@@ -5,7 +5,7 @@ type TProps = {
   children: React.ReactNode;
 };
 
-export const Field = ({ label, children }: TProps) => (
+export const Field: React.FC<TProps> = ({ label, children }) => (
   <StyledWrapper>
     <StyledLabel>{label}</StyledLabel>
     {children}

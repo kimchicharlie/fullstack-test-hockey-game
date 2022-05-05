@@ -7,18 +7,18 @@ import {
   StyledMain,
   StyledTableWrapper,
 } from "./App.styled";
-import { usePlayers } from "../hooks/usePlayers";
-import { getLastNYears } from "../utils/date";
-import { Header } from "../components/Header";
-import { Field } from "../components/Field";
-import { PlayersTable } from "../components/PlayersTable";
-import loaderLogo from "../assets/loader.svg";
-import crossLogo from "../assets/cross-remove.svg";
-import captainLogo from "../assets/captain.svg";
-import { Footer } from "../components/Footer";
-import { CreatePlayer } from "../components/CreatePlayer";
-import { Button } from "../components/Button";
-import { TCreatePlayerParams } from "../api/createPlayer";
+import { usePlayers } from "../../hooks/usePlayers";
+import { getLastNYears } from "../../utils/date";
+import { Header } from "../Header";
+import { Field } from "../Field";
+import { PlayersTable } from "../PlayersTable";
+import loaderLogo from "../../assets/loader.svg";
+import crossLogo from "../../assets/cross-remove.svg";
+import captainLogo from "../../assets/captain.svg";
+import { Footer } from "../Footer";
+import { CreatePlayer } from "../CreatePlayer";
+import { Button } from "../Button";
+import { TCreatePlayerParams } from "../../api/players/createPlayer";
 
 const last20Years = getLastNYears(20);
 
